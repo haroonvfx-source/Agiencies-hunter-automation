@@ -11,17 +11,9 @@ import os
 # then moves to the next automatically. Add/remove/reorder freely.
 # ---------------------------------------------------------------------------
 COUNTRIES = [
-    "United States",
-    "United Kingdom",
-    "United Arab Emirates",
-    "Australia",
-    "Canada",
-    "Germany",
-    "Netherlands",
-    "Ireland",
-    "Sweden",
-    "France",
-    "Spain",
+    "United States", "United Kingdom", "United Arab Emirates", "Australia",
+    "Canada", "Germany", "Netherlands", "Ireland", "Sweden", "France", "Spain",
+    "New Zealand", "Singapore", "South Africa", "Italy", "Switzerland",
 ]
 
 # ---------------------------------------------------------------------------
