@@ -11,9 +11,14 @@ import os
 # then moves to the next automatically. Add/remove/reorder freely.
 # ---------------------------------------------------------------------------
 COUNTRIES = [
-    "United States", "United Kingdom", "United Arab Emirates", "Australia",
-    "Canada", "Germany", "Netherlands", "Ireland", "Sweden", "France", "Spain",
-    "New Zealand", "Singapore", "South Africa", "Italy", "Switzerland",
+    # --- Tier 1: highest-paying markets ---
+    "United States", "United Arab Emirates", "Switzerland", "Australia",
+    "Canada", "United Kingdom", "Qatar", "Norway",
+    # --- Tier 2: strong Europe ---
+    "Ireland", "Netherlands", "Denmark", "Germany", "Sweden",
+    "Luxembourg", "Singapore",
+    # --- Tier 3: still solid, lower priority ---
+    "France", "New Zealand", "Italy", "Spain", "South Africa",
 ]
 
 # ---------------------------------------------------------------------------
