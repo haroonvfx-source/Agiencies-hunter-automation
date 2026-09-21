@@ -1,0 +1,5 @@
+.env
+venv/
+__pycache__/
+*.pyc
+sunny-dialect-509307-c9-9180ced23b8b.json
