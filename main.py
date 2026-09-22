@@ -44,6 +44,7 @@ def build_row(company: dict, contacts: dict, country: str) -> dict:
 
     return {
         "company_domain": company["domain"],
+        "company_name": contacts.get("company_name", company["domain"]),
         "source_url": company["url"],
         "page_title": company.get("title", ""),
         "country": country,
@@ -52,6 +53,7 @@ def build_row(company: dict, contacts: dict, country: str) -> dict:
         "phones": "; ".join(contacts["phones"]),
         "matched_role_keywords": ", ".join(matched_roles),
         "date_found": datetime.utcnow().strftime("%Y-%m-%d"),
+        "outreach_status": "",  # your email automation can update this column
     }
 
 
@@ -111,10 +113,18 @@ def run():
             state["sites_today"] += 1
 
             if contacts["emails"] or contacts["phones"]:
-                row = build_row(company, contacts, country)
-                batcher.add(row)
-                print(f"    -> found {len(contacts['emails'])} email(s), "
-                      f"{len(contacts['phones'])} phone(s)")
+                company_name = contacts.get("company_name", domain)
+                if state_mod.is_duplicate_company_name(
+                    state, company_name, config.DEDUPE_NAME_SIMILARITY
+                ):
+                    print(f"    -> skipped, looks like a duplicate of an "
+                          f"already-found company ('{company_name}')")
+                else:
+                    row = build_row(company, contacts, country)
+                    batcher.add(row)
+                    state_mod.mark_company_name_seen(state, company_name)
+                    print(f"    -> found {len(contacts['emails'])} email(s), "
+                          f"{len(contacts['phones'])} phone(s)")
 
             time.sleep(config.REQUEST_DELAY_SECONDS)
 

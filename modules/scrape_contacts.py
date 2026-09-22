@@ -6,12 +6,15 @@ extracts emails, phone numbers, and a company name guess.
 
 import re
 import time
+import urllib.robotparser
 from urllib.parse import urljoin, urlparse
 
 import requests
 from bs4 import BeautifulSoup
 
 import config
+
+_robots_cache = {}
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; LeadResearchBot/1.0; "
@@ -26,6 +29,43 @@ CONTACT_PATH_HINTS = ("contact", "about", "team", "careers", "jobs", "get-in-tou
 
 BAD_EMAIL_SUFFIXES = (".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp")
 BAD_EMAIL_PREFIXES = ("example@", "you@", "name@", "sentry@", "wixpress.com")
+
+
+def _robots_allows(url: str) -> bool:
+    if not config.RESPECT_ROBOTS_TXT:
+        return True
+    parsed = urlparse(url)
+    origin = f"{parsed.scheme}://{parsed.netloc}"
+    if origin not in _robots_cache:
+        rp = urllib.robotparser.RobotFileParser()
+        rp.set_url(urljoin(origin, "/robots.txt"))
+        try:
+            rp.read()
+        except Exception:
+            rp = None  # if robots.txt can't be read, default to allowing
+        _robots_cache[origin] = rp
+    rp = _robots_cache[origin]
+    if rp is None:
+        return True
+    try:
+        return rp.can_fetch(HEADERS["User-Agent"], url)
+    except Exception:
+        return True
+
+
+def _extract_company_name(html: str, domain: str) -> str:
+    soup = BeautifulSoup(html, "html.parser")
+    og_site = soup.find("meta", property="og:site_name")
+    if og_site and og_site.get("content"):
+        return og_site["content"].strip()
+    if soup.title and soup.title.string:
+        title = soup.title.string.strip()
+        # titles are often "Company Name | Tagline" or "Company - Tagline"
+        for sep in (" | ", " – ", " — ", " - "):
+            if sep in title:
+                return title.split(sep)[0].strip()
+        return title[:80]
+    return domain
 
 
 def _get(url: str):
@@ -72,19 +112,25 @@ def _extract_phones(html: str) -> set:
 
 def scrape_company_site(url: str, domain: str) -> dict:
     """
-    Returns: {"emails": [...], "phones": [...], "pages_checked": [...]}
+    Returns: {"emails": [...], "phones": [...], "pages_checked": [...], "company_name": str}
     """
     emails, phones, pages_checked = set(), set(), []
 
+    if not _robots_allows(url):
+        return {"emails": [], "phones": [], "pages_checked": [], "company_name": domain}
+
     home_html = _get(url)
     if not home_html:
-        return {"emails": [], "phones": [], "pages_checked": []}
+        return {"emails": [], "phones": [], "pages_checked": [], "company_name": domain}
 
     pages_checked.append(url)
     emails |= _extract_emails(home_html)
     phones |= _extract_phones(home_html)
+    company_name = _extract_company_name(home_html, domain)
 
     for link in _find_contact_links(url, home_html):
+        if not _robots_allows(link):
+            continue
         time.sleep(config.REQUEST_DELAY_SECONDS)
         html = _get(link)
         if html:
@@ -101,4 +147,5 @@ def scrape_company_site(url: str, domain: str) -> dict:
         "emails": ranked_emails[:5],
         "phones": sorted(phones)[:5],
         "pages_checked": pages_checked,
+        "company_name": company_name,
     }

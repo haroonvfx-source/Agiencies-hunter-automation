@@ -23,9 +23,9 @@ import config
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
 HEADER = [
-    "company_domain", "source_url", "page_title", "country",
+    "company_domain", "company_name", "source_url", "page_title", "country",
     "emails", "email_status", "phones", "matched_role_keywords",
-    "date_found",
+    "date_found", "outreach_status",
 ]
 
 

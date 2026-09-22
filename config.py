@@ -8,17 +8,37 @@ import os
 # ---------------------------------------------------------------------------
 # Countries to hunt in, in the order they'll be processed. The script works
 # through one country until it's exhausted (or the daily budget runs out),
-# then moves to the next automatically. Add/remove/reorder freely.
+# then moves to the next automatically.
+#
+# Ordered highest-budget markets first (US, UAE, Switzerland, Australia,
+# Canada, UK, then wealthy Europe) so the best-paying leads land in the
+# Sheet earliest, with lower-priority markets processed after. Reorder or
+# edit freely - just move a country up/down this list to change priority.
 # ---------------------------------------------------------------------------
 COUNTRIES = [
     # --- Tier 1: highest-paying markets ---
-    "United States", "United Arab Emirates", "Switzerland", "Australia",
-    "Canada", "United Kingdom", "Qatar", "Norway",
+    "United States",
+    "United Arab Emirates",
+    "Switzerland",
+    "Australia",
+    "Canada",
+    "United Kingdom",
+    "Qatar",
+    "Norway",
     # --- Tier 2: strong Europe ---
-    "Ireland", "Netherlands", "Denmark", "Germany", "Sweden",
-    "Luxembourg", "Singapore",
+    "Ireland",
+    "Netherlands",
+    "Denmark",
+    "Germany",
+    "Sweden",
+    "Luxembourg",
+    "Singapore",
     # --- Tier 3: still solid, lower priority ---
-    "France", "New Zealand", "Italy", "Spain", "South Africa",
+    "France",
+    "New Zealand",
+    "Italy",
+    "Spain",
+    "South Africa",
 ]
 
 # ---------------------------------------------------------------------------
@@ -42,9 +62,25 @@ RESULTS_PAGES_PER_QUERY = 3
 # Free-tier daily budgets. Tune these down if you're getting rate-limited.
 # The run stops cleanly once any limit is hit and picks up again tomorrow.
 # ---------------------------------------------------------------------------
-MAX_SEARCH_QUERIES_PER_DAY = 80      # keeps well under free search limits
-MAX_SITES_SCRAPED_PER_DAY = 250      # be polite to the sites we visit
+MAX_SEARCH_QUERIES_PER_DAY = 150     # raised after a clean full-budget test run
+MAX_SITES_SCRAPED_PER_DAY = 400      # be polite to the sites we visit
 REQUEST_DELAY_SECONDS = 2.0          # pause between outbound HTTP requests
+RESPECT_ROBOTS_TXT = True            # skip a site's contact pages if its robots.txt disallows them
+
+# ---------------------------------------------------------------------------
+# Dedupe: catches the same company showing up under two domains
+# (e.g. agency.com and agency.io) by comparing company names, not just
+# domains. 0.0-1.0 similarity threshold - higher = stricter match required.
+# ---------------------------------------------------------------------------
+DEDUPE_NAME_SIMILARITY = 0.88
+
+# ---------------------------------------------------------------------------
+# Optional paid email verification. Leave blank to keep using the free
+# MX-record check. Set these to upgrade to real deliverability scoring.
+# Supported providers: "zerobounce" (get a free-tier key at zerobounce.net)
+# ---------------------------------------------------------------------------
+EMAIL_VERIFY_PROVIDER = os.environ.get("EMAIL_VERIFY_PROVIDER", "")
+EMAIL_VERIFY_API_KEY = os.environ.get("EMAIL_VERIFY_API_KEY", "")
 
 # ---------------------------------------------------------------------------
 # Files
@@ -55,6 +91,13 @@ STATE_FILE = "state.json"
 # Google Sheets output
 # ---------------------------------------------------------------------------
 SPREADSHEET_ID = os.environ.get("SPREADSHEET_ID", "")
+
+# Two ways to provide the service account credentials - use whichever is
+# easier for the environment you're running in:
+#   - GOOGLE_SHEETS_CREDENTIALS_FILE: path to the downloaded .json key file
+#     (simplest for local runs - no copy/paste of JSON needed)
+#   - GOOGLE_SHEETS_CREDENTIALS_JSON: the full JSON key content as a string
+#     (used for GitHub Actions, where it's pasted directly into a Secret)
 GOOGLE_SHEETS_CREDENTIALS_FILE = os.environ.get("GOOGLE_SHEETS_CREDENTIALS_FILE", "")
 GOOGLE_SHEETS_CREDENTIALS_JSON = os.environ.get("GOOGLE_SHEETS_CREDENTIALS_JSON", "")
 SHEET_BATCH_SIZE = 20  # rows buffered before each write to Sheets

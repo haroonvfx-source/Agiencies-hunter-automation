@@ -11,15 +11,43 @@ catches the large majority of fake/broken addresses, is:
 
 This is what populates the "email_status" column. Treat "valid_domain"
 as "worth sending to", not "guaranteed delivered".
+
+Optionally, set EMAIL_VERIFY_PROVIDER=zerobounce and EMAIL_VERIFY_API_KEY
+in config.py / your environment to use real paid verification instead.
 """
 
 import re
 
 import dns.resolver
+import requests
+
+import config
 
 EMAIL_RE = re.compile(r"^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$")
 
 _mx_cache = {}
+_zb_cache = {}
+
+
+def _zerobounce_verify(email: str) -> str:
+    """Optional paid verification. Returns 'valid_domain', 'no_mail_server',
+    or falls back to None on any error so the caller can use the free check."""
+    if email in _zb_cache:
+        return _zb_cache[email]
+    try:
+        resp = requests.get(
+            "https://api.zerobounce.net/v2/validate",
+            params={"api_key": config.EMAIL_VERIFY_API_KEY, "email": email},
+            timeout=10,
+        )
+        resp.raise_for_status()
+        status = resp.json().get("status", "")
+        result = "valid_domain" if status == "valid" else "no_mail_server"
+        _zb_cache[email] = result
+        return result
+    except Exception as e:
+        print(f"  [verify] ZeroBounce failed for {email}, falling back to MX check: {e}")
+        return None
 
 
 def _has_mx_record(domain: str) -> bool:
@@ -38,5 +66,12 @@ def verify(email: str) -> str:
     """Returns one of: 'invalid_syntax', 'no_mail_server', 'valid_domain'"""
     if not EMAIL_RE.match(email):
         return "invalid_syntax"
+
+    if config.EMAIL_VERIFY_PROVIDER == "zerobounce" and config.EMAIL_VERIFY_API_KEY:
+        result = _zerobounce_verify(email)
+        if result is not None:
+            return result
+        # fall through to free check on any API failure
+
     domain = email.split("@", 1)[1]
     return "valid_domain" if _has_mx_record(domain) else "no_mail_server"
