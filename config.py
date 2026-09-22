@@ -65,6 +65,7 @@ RESULTS_PAGES_PER_QUERY = 3
 MAX_SEARCH_QUERIES_PER_DAY = 400     # raised after a clean full-budget test run
 MAX_SITES_SCRAPED_PER_DAY = 800      # be polite to the sites we visit
 REQUEST_DELAY_SECONDS = 2.0          # pause between outbound HTTP requests
+MAX_RUNTIME_MINUTES = 15             # stop gracefully before GitHub's 20-min hard cutoff
 RESPECT_ROBOTS_TXT = True            # skip a site's contact pages if its robots.txt disallows them
 
 # ---------------------------------------------------------------------------
