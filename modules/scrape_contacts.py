@@ -30,6 +30,23 @@ CONTACT_PATH_HINTS = ("contact", "about", "team", "careers", "jobs", "get-in-tou
 BAD_EMAIL_SUFFIXES = (".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp")
 BAD_EMAIL_PREFIXES = ("example@", "you@", "name@", "sentry@", "wixpress.com")
 
+# Timeout for every outbound request - this is what was missing before and
+# could cause a run to hang indefinitely on one unresponsive site.
+REQUEST_TIMEOUT = 8
+
+
+def _fetch_robots_lines(origin: str):
+    """Fetches robots.txt with a hard timeout - never hangs."""
+    try:
+        resp = requests.get(
+            urljoin(origin, "/robots.txt"), headers=HEADERS, timeout=REQUEST_TIMEOUT
+        )
+        if resp.status_code == 200:
+            return resp.text.splitlines()
+    except requests.RequestException:
+        pass
+    return None
+
 
 def _robots_allows(url: str) -> bool:
     if not config.RESPECT_ROBOTS_TXT:
@@ -37,12 +54,12 @@ def _robots_allows(url: str) -> bool:
     parsed = urlparse(url)
     origin = f"{parsed.scheme}://{parsed.netloc}"
     if origin not in _robots_cache:
-        rp = urllib.robotparser.RobotFileParser()
-        rp.set_url(urljoin(origin, "/robots.txt"))
-        try:
-            rp.read()
-        except Exception:
-            rp = None  # if robots.txt can't be read, default to allowing
+        lines = _fetch_robots_lines(origin)
+        if lines is not None:
+            rp = urllib.robotparser.RobotFileParser()
+            rp.parse(lines)
+        else:
+            rp = None  # couldn't fetch robots.txt in time - default to allowing
         _robots_cache[origin] = rp
     rp = _robots_cache[origin]
     if rp is None:
@@ -70,7 +87,7 @@ def _extract_company_name(html: str, domain: str) -> str:
 
 def _get(url: str):
     try:
-        resp = requests.get(url, headers=HEADERS, timeout=12)
+        resp = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
         if resp.status_code == 200 and "text/html" in resp.headers.get("Content-Type", ""):
             return resp.text
     except requests.RequestException:
