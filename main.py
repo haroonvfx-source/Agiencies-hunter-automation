@@ -7,10 +7,10 @@ Sheets — one tab per country.
 
 Designed to run as a daily GitHub Action. Each run works through search
 queries for the *current* country until either that country's queries are
-exhausted or today's free-tier budget (config.py) is used up, then stops
-cleanly. state.json remembers exactly where it left off, so tomorrow's
-run continues seamlessly — including moving on to the next country once
-one is fully done.
+exhausted, today's free-tier budget (config.py) is used up, or the
+per-run time limit is reached, then stops cleanly. state.json remembers
+exactly where it left off, so the next run continues seamlessly —
+including moving on to the next country once one is fully done.
 
 Usage:
     python main.py
@@ -58,6 +58,11 @@ def build_row(company: dict, contacts: dict, country: str) -> dict:
 
 
 def run():
+    start_time = time.time()
+
+    def time_left():
+        return (time.time() - start_time) < config.MAX_RUNTIME_MINUTES * 60
+
     state = state_mod.load_state(config.STATE_FILE)
 
     if state["country_index"] >= len(config.COUNTRIES):
@@ -74,7 +79,7 @@ def run():
     batcher = SheetBatcher(country)
     seen = set(state["seen_domains"])
 
-    while budget_left(state):
+    while budget_left(state) and time_left():
         if state["query_index"] >= len(config.QUERY_TEMPLATES):
             # done with this country -> advance to the next one
             print(f"Finished all queries for {country}. Advancing to next country.")
@@ -100,7 +105,7 @@ def run():
         state["queries_today"] += 1
 
         for company in companies:
-            if not budget_left(state):
+            if not (budget_left(state) and time_left()):
                 break
             domain = company["domain"]
             if domain in seen:
@@ -142,7 +147,10 @@ def run():
 
     batcher.flush()
     state_mod.save_state(config.STATE_FILE, state)
-    print("Daily budget reached — stopping cleanly. Resume tomorrow.")
+    if not time_left():
+        print("Time limit for this run reached — stopping cleanly. Next scheduled run continues from here.")
+    else:
+        print("Daily budget reached — stopping cleanly. Resume tomorrow.")
 
 
 if __name__ == "__main__":
