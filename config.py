@@ -62,8 +62,8 @@ RESULTS_PAGES_PER_QUERY = 3
 # Free-tier daily budgets. Tune these down if you're getting rate-limited.
 # The run stops cleanly once any limit is hit and picks up again tomorrow.
 # ---------------------------------------------------------------------------
-MAX_SEARCH_QUERIES_PER_DAY = 150     # raised after a clean full-budget test run
-MAX_SITES_SCRAPED_PER_DAY = 400      # be polite to the sites we visit
+MAX_SEARCH_QUERIES_PER_DAY = 400     # raised after a clean full-budget test run
+MAX_SITES_SCRAPED_PER_DAY = 800      # be polite to the sites we visit
 REQUEST_DELAY_SECONDS = 2.0          # pause between outbound HTTP requests
 RESPECT_ROBOTS_TXT = True            # skip a site's contact pages if its robots.txt disallows them
 
