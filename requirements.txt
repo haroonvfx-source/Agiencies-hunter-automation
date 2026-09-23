@@ -4,3 +4,4 @@ ddgs>=9.0
 dnspython>=2.6
 gspread>=6.1
 google-auth>=2.30
+phonenumbers>=8.13
