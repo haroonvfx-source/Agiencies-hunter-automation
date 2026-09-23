@@ -11,9 +11,6 @@ catches the large majority of fake/broken addresses, is:
 
 This is what populates the "email_status" column. Treat "valid_domain"
 as "worth sending to", not "guaranteed delivered".
-
-Optionally, set EMAIL_VERIFY_PROVIDER=zerobounce and EMAIL_VERIFY_API_KEY
-in config.py / your environment to use real paid verification instead.
 """
 
 import re
@@ -25,7 +22,6 @@ import config
 
 EMAIL_RE = re.compile(r"^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$")
 
-_mx_cache = {}
 _zb_cache = {}
 
 
@@ -50,20 +46,23 @@ def _zerobounce_verify(email: str) -> str:
         return None
 
 
-def _has_mx_record(domain: str) -> bool:
-    if domain in _mx_cache:
-        return _mx_cache[domain]
+def _has_mx_record(domain: str, mx_cache: dict) -> bool:
+    """mx_cache is state["mx_cache"] - persisted to state.json between runs,
+    so we never re-look-up the same domain's MX records twice, ever."""
+    if domain in mx_cache:
+        return mx_cache[domain]
     try:
         answers = dns.resolver.resolve(domain, "MX", lifetime=6)
         ok = len(answers) > 0
     except Exception:
         ok = False
-    _mx_cache[domain] = ok
+    mx_cache[domain] = ok
     return ok
 
 
-def verify(email: str) -> str:
-    """Returns one of: 'invalid_syntax', 'no_mail_server', 'valid_domain'"""
+def verify(email: str, mx_cache: dict) -> str:
+    """Returns one of: 'invalid_syntax', 'no_mail_server', 'valid_domain'.
+    mx_cache should be state["mx_cache"] so lookups persist across runs."""
     if not EMAIL_RE.match(email):
         return "invalid_syntax"
 
@@ -74,4 +73,4 @@ def verify(email: str) -> str:
         # fall through to free check on any API failure
 
     domain = email.split("@", 1)[1]
-    return "valid_domain" if _has_mx_record(domain) else "no_mail_server"
+    return "valid_domain" if _has_mx_record(domain, mx_cache) else "no_mail_server"
