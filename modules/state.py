@@ -14,9 +14,12 @@ DEFAULT_STATE = {
     "page_index": 0,           # which results page we're on for that query
     "seen_domains": [],        # domains already scraped, ever (avoid dupes)
     "seen_company_names": [],  # company names already written, for fuzzy dedupe
+    "mx_cache": {},            # domain -> bool, persisted MX lookup results
+    "query_stats": {},         # query template text -> cumulative leads found
     "last_run_date": None,
     "queries_today": 0,
     "sites_today": 0,
+    "errors_today": 0,
 }
 
 
@@ -31,6 +34,7 @@ def load_state(path: str) -> dict:
     if state.get("last_run_date") != today:
         state["queries_today"] = 0
         state["sites_today"] = 0
+        state["errors_today"] = 0
         state["last_run_date"] = today
 
     # backfill any keys missing from an older state file
