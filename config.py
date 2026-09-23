@@ -62,11 +62,11 @@ RESULTS_PAGES_PER_QUERY = 3
 # Free-tier daily budgets. Tune these down if you're getting rate-limited.
 # The run stops cleanly once any limit is hit and picks up again tomorrow.
 # ---------------------------------------------------------------------------
-MAX_SEARCH_QUERIES_PER_DAY = 400     # raised after a clean full-budget test run
-MAX_SITES_SCRAPED_PER_DAY = 800      # be polite to the sites we visit
+MAX_SEARCH_QUERIES_PER_DAY = 150     # raised after a clean full-budget test run
+MAX_SITES_SCRAPED_PER_DAY = 400      # be polite to the sites we visit
 REQUEST_DELAY_SECONDS = 2.0          # pause between outbound HTTP requests
-MAX_RUNTIME_MINUTES = 15             # stop gracefully before GitHub's 20-min hard cutoff
 RESPECT_ROBOTS_TXT = True            # skip a site's contact pages if its robots.txt disallows them
+MAX_RUNTIME_MINUTES = 15             # stop gracefully before GitHub's 20-min hard cutoff
 
 # ---------------------------------------------------------------------------
 # Dedupe: catches the same company showing up under two domains
@@ -115,4 +115,42 @@ GOOGLE_CSE_ID = os.environ.get("GOOGLE_CSE_ID", "")
 TARGET_ROLE_KEYWORDS = [
     "video editor", "video editing", "motion graphics", "graphic designer",
     "graphic design", "creative director", "art director", "video production",
+]
+
+# ---------------------------------------------------------------------------
+# Decision-maker extraction: job titles worth pulling a name for, so
+# outreach can be addressed to a real person instead of a generic inbox.
+# Best-effort - scraped from visible page text, not always found.
+# ---------------------------------------------------------------------------
+DECISION_MAKER_TITLES = [
+    "creative director", "art director", "founder", "co-founder", "ceo",
+    "owner", "managing director", "head of design", "head of video",
+    "hiring manager", "talent acquisition", "hr manager", "studio manager",
+    "executive producer", "production manager",
+]
+
+# ---------------------------------------------------------------------------
+# Phone normalization: ISO 3166-1 alpha-2 codes for each country in
+# COUNTRIES, used as a region hint so scraped phone numbers can be
+# formatted into a consistent, dialable international format.
+# ---------------------------------------------------------------------------
+COUNTRY_ISO2 = {
+    "United States": "US", "United Arab Emirates": "AE", "Switzerland": "CH",
+    "Australia": "AU", "Canada": "CA", "United Kingdom": "GB", "Qatar": "QA",
+    "Norway": "NO", "Ireland": "IE", "Netherlands": "NL", "Denmark": "DK",
+    "Germany": "DE", "Sweden": "SE", "Luxembourg": "LU", "Singapore": "SG",
+    "France": "FR", "New Zealand": "NZ", "Italy": "IT", "Spain": "ES",
+    "South Africa": "ZA",
+}
+
+# ---------------------------------------------------------------------------
+# Premium lead detection: companies mentioning visa sponsorship or remote
+# work get flagged and copied into their own "Premium Leads" tab, since
+# these tend to be the highest-quality leads for this kind of outreach.
+# ---------------------------------------------------------------------------
+PREMIUM_KEYWORDS = [
+    "visa sponsorship", "sponsor visa", "visa sponsor", "sponsorship available",
+    "relocation assistance", "relocation package", "remote work", "fully remote",
+    "100% remote", "remote-first", "remote first", "work from home",
+    "work remotely", "hybrid remote",
 ]
