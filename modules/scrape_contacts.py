@@ -30,23 +30,6 @@ CONTACT_PATH_HINTS = ("contact", "about", "team", "careers", "jobs", "get-in-tou
 BAD_EMAIL_SUFFIXES = (".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp")
 BAD_EMAIL_PREFIXES = ("example@", "you@", "name@", "sentry@", "wixpress.com")
 
-# Timeout for every outbound request - this is what was missing before and
-# could cause a run to hang indefinitely on one unresponsive site.
-REQUEST_TIMEOUT = 8
-
-
-def _fetch_robots_lines(origin: str):
-    """Fetches robots.txt with a hard timeout - never hangs."""
-    try:
-        resp = requests.get(
-            urljoin(origin, "/robots.txt"), headers=HEADERS, timeout=REQUEST_TIMEOUT
-        )
-        if resp.status_code == 200:
-            return resp.text.splitlines()
-    except requests.RequestException:
-        pass
-    return None
-
 
 def _robots_allows(url: str) -> bool:
     if not config.RESPECT_ROBOTS_TXT:
@@ -54,12 +37,12 @@ def _robots_allows(url: str) -> bool:
     parsed = urlparse(url)
     origin = f"{parsed.scheme}://{parsed.netloc}"
     if origin not in _robots_cache:
-        lines = _fetch_robots_lines(origin)
-        if lines is not None:
-            rp = urllib.robotparser.RobotFileParser()
-            rp.parse(lines)
-        else:
-            rp = None  # couldn't fetch robots.txt in time - default to allowing
+        rp = urllib.robotparser.RobotFileParser()
+        rp.set_url(urljoin(origin, "/robots.txt"))
+        try:
+            rp.read()
+        except Exception:
+            rp = None  # if robots.txt can't be read, default to allowing
         _robots_cache[origin] = rp
     rp = _robots_cache[origin]
     if rp is None:
@@ -68,6 +51,43 @@ def _robots_allows(url: str) -> bool:
         return rp.can_fetch(HEADERS["User-Agent"], url)
     except Exception:
         return True
+
+
+NAME_RE = re.compile(r"^[A-Z][a-zA-Z'\-]+(?:\s+[A-Z][a-zA-Z'\-]+){1,2}$")
+
+
+def _extract_decision_maker(html: str) -> tuple:
+    """Best-effort scan of visible page text for a named person next to a
+    decision-maker job title (e.g. 'Jane Smith - Creative Director').
+    Returns (name, title) or ("", "") if nothing plausible is found."""
+    soup = BeautifulSoup(html, "html.parser")
+    text = soup.get_text("\n")
+    lines = [l.strip() for l in text.split("\n") if l.strip()][:400]
+
+    for i, line in enumerate(lines):
+        low = line.lower()
+        if len(line) > 80:
+            continue
+        for title in config.DECISION_MAKER_TITLES:
+            if title not in low:
+                continue
+            # try same line split on separators, then neighbouring lines
+            candidates = re.split(r"[-,|]", line) + [
+                lines[i - 1] if i > 0 else "",
+                lines[i + 1] if i + 1 < len(lines) else "",
+            ]
+            for cand in candidates:
+                cand = cand.strip()
+                if cand and title not in cand.lower() and NAME_RE.match(cand):
+                    return cand, title.title()
+    return "", ""
+
+
+def _extract_premium_flags(html: str) -> list:
+    """Flags companies mentioning visa sponsorship or remote work - these
+    tend to be the highest-quality leads for this kind of outreach."""
+    text_lower = BeautifulSoup(html, "html.parser").get_text(" ").lower()
+    return [kw for kw in config.PREMIUM_KEYWORDS if kw in text_lower]
 
 
 def _extract_company_name(html: str, domain: str) -> str:
@@ -87,7 +107,7 @@ def _extract_company_name(html: str, domain: str) -> str:
 
 def _get(url: str):
     try:
-        resp = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
+        resp = requests.get(url, headers=HEADERS, timeout=12)
         if resp.status_code == 200 and "text/html" in resp.headers.get("Content-Type", ""):
             return resp.text
     except requests.RequestException:
@@ -129,21 +149,32 @@ def _extract_phones(html: str) -> set:
 
 def scrape_company_site(url: str, domain: str) -> dict:
     """
-    Returns: {"emails": [...], "phones": [...], "pages_checked": [...], "company_name": str}
+    Returns: {"emails": [...], "phones": [...], "pages_checked": [...],
+              "company_name": str, "contact_name": str, "contact_title": str,
+              "premium_flags": [...]}
     """
+    empty_result = {
+        "emails": [], "phones": [], "pages_checked": [], "company_name": domain,
+        "contact_name": "", "contact_title": "", "premium_flags": [],
+    }
+
     emails, phones, pages_checked = set(), set(), []
+    contact_name, contact_title = "", ""
+    premium_flags = set()
 
     if not _robots_allows(url):
-        return {"emails": [], "phones": [], "pages_checked": [], "company_name": domain}
+        return empty_result
 
     home_html = _get(url)
     if not home_html:
-        return {"emails": [], "phones": [], "pages_checked": [], "company_name": domain}
+        return empty_result
 
     pages_checked.append(url)
     emails |= _extract_emails(home_html)
     phones |= _extract_phones(home_html)
     company_name = _extract_company_name(home_html, domain)
+    contact_name, contact_title = _extract_decision_maker(home_html)
+    premium_flags |= set(_extract_premium_flags(home_html))
 
     for link in _find_contact_links(url, home_html):
         if not _robots_allows(link):
@@ -154,6 +185,9 @@ def scrape_company_site(url: str, domain: str) -> dict:
             pages_checked.append(link)
             emails |= _extract_emails(html)
             phones |= _extract_phones(html)
+            premium_flags |= set(_extract_premium_flags(html))
+            if not contact_name:
+                contact_name, contact_title = _extract_decision_maker(html)
 
     # prefer emails that match the company's own domain (more likely official)
     ranked_emails = sorted(
@@ -165,4 +199,7 @@ def scrape_company_site(url: str, domain: str) -> dict:
         "phones": sorted(phones)[:5],
         "pages_checked": pages_checked,
         "company_name": company_name,
+        "contact_name": contact_name,
+        "contact_title": contact_title,
+        "premium_flags": sorted(premium_flags),
     }
