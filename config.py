@@ -25,7 +25,13 @@ COUNTRIES = [
     "United Kingdom",
     "Qatar",
     "Norway",
-    # --- Tier 2: strong Europe ---
+    "Israel",
+    "Saudi Arabia",
+    "Hong Kong",
+    "Bahrain",
+    "Kuwait",
+    "Japan",
+    # --- Tier 2: strong Europe / Asia ---
     "Ireland",
     "Netherlands",
     "Denmark",
@@ -33,12 +39,21 @@ COUNTRIES = [
     "Sweden",
     "Luxembourg",
     "Singapore",
+    "Belgium",
+    "Austria",
+    "Finland",
+    "South Korea",
     # --- Tier 3: still solid, lower priority ---
     "France",
     "New Zealand",
     "Italy",
     "Spain",
     "South Africa",
+    "Portugal",
+    "Poland",
+    "Czech Republic",
+    "Iceland",
+    "Malta",
 ]
 
 # ---------------------------------------------------------------------------
@@ -66,7 +81,6 @@ MAX_SEARCH_QUERIES_PER_DAY = 150     # raised after a clean full-budget test run
 MAX_SITES_SCRAPED_PER_DAY = 400      # be polite to the sites we visit
 REQUEST_DELAY_SECONDS = 2.0          # pause between outbound HTTP requests
 RESPECT_ROBOTS_TXT = True            # skip a site's contact pages if its robots.txt disallows them
-MAX_RUNTIME_MINUTES = 15             # stop gracefully before GitHub's 20-min hard cutoff
 
 # ---------------------------------------------------------------------------
 # Dedupe: catches the same company showing up under two domains
@@ -140,7 +154,11 @@ COUNTRY_ISO2 = {
     "Norway": "NO", "Ireland": "IE", "Netherlands": "NL", "Denmark": "DK",
     "Germany": "DE", "Sweden": "SE", "Luxembourg": "LU", "Singapore": "SG",
     "France": "FR", "New Zealand": "NZ", "Italy": "IT", "Spain": "ES",
-    "South Africa": "ZA",
+    "South Africa": "ZA", "Israel": "IL", "Saudi Arabia": "SA",
+    "Hong Kong": "HK", "Bahrain": "BH", "Kuwait": "KW", "Japan": "JP",
+    "Belgium": "BE", "Austria": "AT", "Finland": "FI", "South Korea": "KR",
+    "Portugal": "PT", "Poland": "PL", "Czech Republic": "CZ",
+    "Iceland": "IS", "Malta": "MT",
 }
 
 # ---------------------------------------------------------------------------
@@ -154,3 +172,12 @@ PREMIUM_KEYWORDS = [
     "100% remote", "remote-first", "remote first", "work from home",
     "work remotely", "hybrid remote",
 ]
+
+# ---------------------------------------------------------------------------
+# Lead scoring: a simple points system so your outreach automation can
+# work the best leads first. Higher score = better lead to email.
+# ---------------------------------------------------------------------------
+SCORE_VALID_EMAIL = 40          # has at least one MX-verified email
+SCORE_DECISION_MAKER = 30       # found a named person + title to address
+SCORE_PREMIUM = 20              # mentions visa sponsorship / remote work
+SCORE_MATCHED_ROLE = 10         # page mentions video editor / graphic designer
