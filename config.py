@@ -25,7 +25,6 @@ COUNTRIES = [
     "United Kingdom",
     "Qatar",
     "Norway",
-    "Israel",
     "Saudi Arabia",
     "Hong Kong",
     "Bahrain",
@@ -81,6 +80,7 @@ MAX_SEARCH_QUERIES_PER_DAY = 150     # raised after a clean full-budget test run
 MAX_SITES_SCRAPED_PER_DAY = 400      # be polite to the sites we visit
 REQUEST_DELAY_SECONDS = 2.0          # pause between outbound HTTP requests
 RESPECT_ROBOTS_TXT = True            # skip a site's contact pages if its robots.txt disallows them
+MAX_RUNTIME_MINUTES = 15             # hard stop per run; safety margin under the 20-min GitHub Actions job timeout
 
 # ---------------------------------------------------------------------------
 # Dedupe: catches the same company showing up under two domains
@@ -154,7 +154,7 @@ COUNTRY_ISO2 = {
     "Norway": "NO", "Ireland": "IE", "Netherlands": "NL", "Denmark": "DK",
     "Germany": "DE", "Sweden": "SE", "Luxembourg": "LU", "Singapore": "SG",
     "France": "FR", "New Zealand": "NZ", "Italy": "IT", "Spain": "ES",
-    "South Africa": "ZA", "Israel": "IL", "Saudi Arabia": "SA",
+    "South Africa": "ZA", "Saudi Arabia": "SA",
     "Hong Kong": "HK", "Bahrain": "BH", "Kuwait": "KW", "Japan": "JP",
     "Belgium": "BE", "Austria": "AT", "Finland": "FI", "South Korea": "KR",
     "Portugal": "PT", "Poland": "PL", "Czech Republic": "CZ",
