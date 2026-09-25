@@ -16,6 +16,7 @@ DEFAULT_STATE = {
     "seen_company_names": [],  # company names already written, for fuzzy dedupe
     "mx_cache": {},            # domain -> bool, persisted MX lookup results
     "query_stats": {},         # query template text -> cumulative leads found
+    "cycle": 1,                # how many full passes through COUNTRIES we've completed
     "last_run_date": None,
     "queries_today": 0,
     "sites_today": 0,
