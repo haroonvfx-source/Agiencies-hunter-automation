@@ -48,11 +48,22 @@ def build_row(company: dict, contacts: dict, country: str, state: dict) -> dict:
 
     normalized_phones = phone_utils.normalize_phones(contacts["phones"], country)
 
+    lead_score = 0
+    if best_status == "valid_domain":
+        lead_score += config.SCORE_VALID_EMAIL
+    if contacts.get("contact_name"):
+        lead_score += config.SCORE_DECISION_MAKER
+    if contacts.get("premium_flags"):
+        lead_score += config.SCORE_PREMIUM
+    if matched_roles:
+        lead_score += config.SCORE_MATCHED_ROLE
+
     return {
         "company_domain": company["domain"],
         "company_name": contacts.get("company_name", company["domain"]),
         "contact_name": contacts.get("contact_name", ""),
         "contact_title": contacts.get("contact_title", ""),
+        "lead_score": lead_score,
         "source_url": company["url"],
         "page_title": company.get("title", ""),
         "country": country,
@@ -82,14 +93,21 @@ def run():
     errors_this_run = 0
 
     if state["country_index"] >= len(config.COUNTRIES):
-        print("All countries completed! Reset state.json (or extend "
-              "config.COUNTRIES) to hunt again.")
-        return
+        # Finished every country in a previous run - start a fresh cycle.
+        # Companies already found are NEVER re-added (seen_domains blocks
+        # that permanently, protecting outreach_status from duplicates) -
+        # this just re-runs the searches to catch newly-appeared companies.
+        state["cycle"] = state.get("cycle", 1) + 1
+        state["country_index"] = 0
+        state["query_index"] = 0
+        state["page_index"] = 0
+        print(f"All countries completed! Starting cycle {state['cycle']} "
+              f"to look for newly-appeared companies.")
 
     run_start_country = config.COUNTRIES[state["country_index"]]
     country = run_start_country
-    print(f"=== Running for: {country} "
-          f"(country {state['country_index'] + 1}/{len(config.COUNTRIES)}) ===")
+    print(f"=== Running for: {country} (country {state['country_index'] + 1}/"
+          f"{len(config.COUNTRIES)}, cycle {state.get('cycle', 1)}) ===")
     print(f"Budget today: {state['queries_today']}/{config.MAX_SEARCH_QUERIES_PER_DAY} "
           f"queries, {state['sites_today']}/{config.MAX_SITES_SCRAPED_PER_DAY} sites used so far")
 
@@ -107,11 +125,13 @@ def run():
             batcher.flush()
             state_mod.save_state(config.STATE_FILE, state)
             if state["country_index"] >= len(config.COUNTRIES):
-                print("All countries completed for this cycle!")
-                break
+                state["cycle"] = state.get("cycle", 1) + 1
+                state["country_index"] = 0
+                print(f"All countries completed! Starting cycle {state['cycle']} "
+                      f"to look for newly-appeared companies.")
             country = config.COUNTRIES[state["country_index"]]
             batcher = SheetBatcher(country)
-            print(f"=== Now running for: {country} ===")
+            print(f"=== Now running for: {country} (cycle {state['cycle']}) ===")
             continue
 
         query_template = config.QUERY_TEMPLATES[state["query_index"]]
@@ -203,6 +223,7 @@ def run():
     # write this run's summary + the updated query-performance rollup
     sheets_writer.write_run_summary({
         "timestamp": datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC"),
+        "cycle": state.get("cycle", 1),
         "country": run_start_country,
         "leads_found": leads_this_run,
         "premium_leads_found": premium_this_run,
