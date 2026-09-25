@@ -30,13 +30,13 @@ SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
 HEADER = [
     "company_domain", "company_name", "contact_name", "contact_title",
-    "source_url", "page_title", "country",
+    "lead_score", "source_url", "page_title", "country",
     "emails", "email_status", "phones", "matched_role_keywords",
     "premium_flags", "date_found", "outreach_status",
 ]
 
 RUN_SUMMARY_HEADER = [
-    "timestamp_utc", "country", "leads_found", "premium_leads_found",
+    "timestamp_utc", "cycle", "country", "leads_found", "premium_leads_found",
     "sites_scraped", "queries_used", "errors",
 ]
 
@@ -103,6 +103,7 @@ def write_run_summary(stats: dict):
     ws = _get_or_create_worksheet(sh, "Run Summary", RUN_SUMMARY_HEADER)
     row = [
         stats.get("timestamp", ""),
+        stats.get("cycle", 1),
         stats.get("country", ""),
         stats.get("leads_found", 0),
         stats.get("premium_leads_found", 0),
