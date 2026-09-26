@@ -40,9 +40,16 @@ def _robots_allows(url: str) -> bool:
         rp = urllib.robotparser.RobotFileParser()
         rp.set_url(urljoin(origin, "/robots.txt"))
         try:
-            rp.read()
+            # RobotFileParser.read() uses urlopen() with NO timeout, which can
+            # hang forever on a slow/dead server. Fetch it ourselves with a
+            # timeout and hand the text to parse() instead.
+            resp = requests.get(rp.url, headers=HEADERS, timeout=8)
+            if resp.status_code == 200:
+                rp.parse(resp.text.splitlines())
+            else:
+                rp = None  # non-200 (404 etc.) -> default to allowing
         except Exception:
-            rp = None  # if robots.txt can't be read, default to allowing
+            rp = None  # if robots.txt can't be fetched, default to allowing
         _robots_cache[origin] = rp
     rp = _robots_cache[origin]
     if rp is None:
