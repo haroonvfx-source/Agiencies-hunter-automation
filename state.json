@@ -1,7 +1,7 @@
 {
-  "country_index": 21,
-  "query_index": 2,
-  "page_index": 1,
+  "country_index": 27,
+  "query_index": 1,
+  "page_index": 0,
   "seen_domains": [
     "goodfirms.co",
     "npdigital.com",
@@ -538,7 +538,14 @@
     "orangemonke.com",
     "mmcagentur.at",
     "at.jooble.org",
-    "stepstone.at"
+    "stepstone.at",
+    "orbismagazine.com",
+    "fixeraustria.com",
+    "orbispro.at",
+    "sjvproductions.com",
+    "dasrund.com",
+    "mevideo.at",
+    "worldproductionservice.com"
   ],
   "seen_company_names": [
     "digimark.ie",
@@ -730,11 +737,16 @@
     "blumango | marketing agency",
     "lone wolves",
     "orange monke",
-    "mmcagentur digitale lead agentur"
+    "mmcagentur digitale lead agentur",
+    "top film and video production company in austria 2023",
+    "\u2705 commercial video production company in austria",
+    "sjv productions",
+    "dasrund.com",
+    "mevideo"
   ],
-  "last_run_date": "2026-09-25",
-  "queries_today": 43,
-  "sites_today": 41,
+  "last_run_date": "2026-09-26",
+  "queries_today": 104,
+  "sites_today": 7,
   "errors_today": 0,
   "mx_cache": {
     "bionictalent.com": true,
@@ -783,11 +795,20 @@
     "lonewolves.eu": true,
     "orangemonke.com": true,
     "example.com": true,
-    "mmcagentur.at": true
+    "mmcagentur.at": true,
+    "orbispro.com": true,
+    "orbispro.at": true,
+    "orbispro.eu": true,
+    "orbispro.ae": true,
+    "sjvproductions.com": true,
+    "stujolley.art": false,
+    "domain.com": true,
+    "dasrund.com": true,
+    "mevideo.at": true
   },
   "query_stats": {
     "\"digital marketing agency\" {country} \"hiring\" (\"video editor\" OR \"graphic designer\")": 6,
-    "\"video production company\" {country} contact email": 14,
+    "\"video production company\" {country} contact email": 19,
     "social media marketing agency {country} \"contact us\"": 7,
     "\"digital marketing agency\" {country} contact": 9
   },
