@@ -1,6 +1,6 @@
 {
-  "country_index": 4,
-  "query_index": 0,
+  "country_index": 12,
+  "query_index": 2,
   "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
@@ -696,7 +696,16 @@
     "hellosocial.com.au",
     "socialst.com.au",
     "dmgsocial.com.au",
-    "socialsocietyau.com"
+    "socialsocietyau.com",
+    "ewrdigital.com",
+    "digistreetmedia.com",
+    "linkatomic.com",
+    "mindcob.com",
+    "fabercre8tive.ca",
+    "techwyse.com",
+    "88gravity.com",
+    "kreativemachinez.com",
+    "digitalpiloto.com"
   ],
   "seen_company_names": [
     "digimark.ie",
@@ -1015,11 +1024,19 @@
     "tsmn.digital",
     "eight clients",
     "social st.",
-    "social society"
+    "social society",
+    "ewr digital",
+    "digistreet -",
+    "linkatomic",
+    "mindcob",
+    "faber cre8tive: digital marketing agency",
+    "https://www.techwyse.com",
+    "88gravity",
+    "kreative machinez"
   ],
-  "last_run_date": "2026-09-27",
+  "last_run_date": "2026-09-28",
   "queries_today": 150,
-  "sites_today": 121,
+  "sites_today": 9,
   "errors_today": 0,
   "mx_cache": {
     "bionictalent.com": true,
@@ -1184,13 +1201,23 @@
     "tsmn.com.au": true,
     "jose.elcook": false,
     "socialst.com.au": true,
-    "socialsocietyau.com": true
+    "socialsocietyau.com": true,
+    "ewrdigital.com": true,
+    "ewebresults.com": true,
+    "digistreetmedia.com": true,
+    "linkatomic.com": true,
+    "mindcob.com": true,
+    "doe.com": true,
+    "fabercre8tive.ca": true,
+    "fabercre8tive.com": true,
+    "88gravity.com": true,
+    "kreativemachinez.com": true
   },
   "query_stats": {
     "\"digital marketing agency\" {country} \"hiring\" (\"video editor\" OR \"graphic designer\")": 10,
     "\"video production company\" {country} contact email": 67,
     "social media marketing agency {country} \"contact us\"": 37,
-    "\"digital marketing agency\" {country} contact": 29,
+    "\"digital marketing agency\" {country} contact": 37,
     "\"creative agency\" {country} \"video editor\" jobs": 7,
     "\"branding agency\" {country} \"graphic designer\" careers": 13
   },
