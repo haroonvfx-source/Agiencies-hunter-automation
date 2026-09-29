@@ -1,6 +1,6 @@
 {
-  "country_index": 12,
-  "query_index": 2,
+  "country_index": 20,
+  "query_index": 4,
   "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
@@ -705,7 +705,21 @@
     "techwyse.com",
     "88gravity.com",
     "kreativemachinez.com",
-    "digitalpiloto.com"
+    "digitalpiloto.com",
+    "daijob.com",
+    "alphabetproductions.co.jp",
+    "asiavideosupport.com",
+    "filmless.com",
+    "next-level-studio.com",
+    "orbispro.jp",
+    "virginearthinc.com",
+    "buildplus.io",
+    "jobs.org.im",
+    "creativetokyo.com",
+    "friday.ie",
+    "thegorilladigitalltd.com",
+    "fcdm.ie",
+    "eiredigital.com"
   ],
   "seen_company_names": [
     "digimark.ie",
@@ -1032,11 +1046,24 @@
     "faber cre8tive: digital marketing agency",
     "https://www.techwyse.com",
     "88gravity",
-    "kreative machinez"
+    "kreative machinez",
+    "daijob.com :: jobs for international business professionals.",
+    "alphabet productions",
+    "english speaking film & video production company in tokyo | asia video support",
+    "filmless",
+    "orbis production japan",
+    "virgin earth inc.",
+    "build+",
+    "jobs japan",
+    "creative tokyo",
+    "friday",
+    "seo dublin & ireland | the gorilla digital",
+    "fcdm",
+    "eiredigital"
   ],
-  "last_run_date": "2026-09-28",
+  "last_run_date": "2026-09-29",
   "queries_today": 150,
-  "sites_today": 9,
+  "sites_today": 14,
   "errors_today": 0,
   "mx_cache": {
     "bionictalent.com": true,
@@ -1211,15 +1238,26 @@
     "fabercre8tive.ca": true,
     "fabercre8tive.com": true,
     "88gravity.com": true,
-    "kreativemachinez.com": true
+    "kreativemachinez.com": true,
+    "daijob.com": true,
+    "alphabetproductions.co.jp": true,
+    "filmless.com": true,
+    "orbispro.jp": true,
+    "orbispro.it": true,
+    "virginearthinc.com": true,
+    "jobs.org.im": true,
+    "friday.ie": true,
+    "thegorilladigitalltd.com": true,
+    "fcdm.ie": true,
+    "eiredigital.com": true
   },
   "query_stats": {
     "\"digital marketing agency\" {country} \"hiring\" (\"video editor\" OR \"graphic designer\")": 10,
-    "\"video production company\" {country} contact email": 67,
+    "\"video production company\" {country} contact email": 72,
     "social media marketing agency {country} \"contact us\"": 37,
-    "\"digital marketing agency\" {country} contact": 37,
-    "\"creative agency\" {country} \"video editor\" jobs": 7,
-    "\"branding agency\" {country} \"graphic designer\" careers": 13
+    "\"digital marketing agency\" {country} contact": 41,
+    "\"creative agency\" {country} \"video editor\" jobs": 8,
+    "\"branding agency\" {country} \"graphic designer\" careers": 16
   },
   "cycle": 2
 }
