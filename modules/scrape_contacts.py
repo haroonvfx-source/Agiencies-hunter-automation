@@ -158,11 +158,12 @@ def scrape_company_site(url: str, domain: str) -> dict:
     """
     Returns: {"emails": [...], "phones": [...], "pages_checked": [...],
               "company_name": str, "contact_name": str, "contact_title": str,
-              "premium_flags": [...]}
+              "premium_flags": [...], "status": "ok"|"robots_blocked"|"fetch_failed"}
     """
     empty_result = {
         "emails": [], "phones": [], "pages_checked": [], "company_name": domain,
         "contact_name": "", "contact_title": "", "premium_flags": [],
+        "status": "fetch_failed",   # ok | robots_blocked | fetch_failed
     }
 
     emails, phones, pages_checked = set(), set(), []
@@ -170,7 +171,8 @@ def scrape_company_site(url: str, domain: str) -> dict:
     premium_flags = set()
 
     if not _robots_allows(url):
-        return empty_result
+        # a deliberate "no" from the site - final, never worth retrying
+        return {**empty_result, "status": "robots_blocked"}
 
     home_html = _get(url)
     if not home_html:
@@ -209,4 +211,5 @@ def scrape_company_site(url: str, domain: str) -> dict:
         "contact_name": contact_name,
         "contact_title": contact_title,
         "premium_flags": sorted(premium_flags),
+        "status": "ok",
     }
