@@ -1259,5 +1259,6 @@
     "\"creative agency\" {country} \"video editor\" jobs": 8,
     "\"branding agency\" {country} \"graphic designer\" careers": 16
   },
-  "cycle": 2
+  "cycle": 2,
+  "fail_counts": {}
 }
