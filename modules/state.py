@@ -14,6 +14,7 @@ DEFAULT_STATE = {
     "page_index": 0,           # which results page we're on for that query
     "seen_domains": [],        # domains already scraped, ever (avoid dupes)
     "seen_company_names": [],  # company names already written, for fuzzy dedupe
+    "fail_counts": {},         # domain -> failed fetch attempts (retry before giving up)
     "mx_cache": {},            # domain -> bool, persisted MX lookup results
     "query_stats": {},         # query template text -> cumulative leads found
     "cycle": 1,                # how many full passes through COUNTRIES we've completed
@@ -74,3 +75,14 @@ def mark_company_name_seen(state: dict, name: str) -> None:
     name_norm = name.strip().lower()
     if name_norm and name_norm not in state["seen_company_names"]:
         state["seen_company_names"].append(name_norm)
+
+
+MAX_FETCH_ATTEMPTS = 3
+
+
+def record_fetch_failure(state: dict, domain: str) -> bool:
+    """Counts a failed fetch. Returns True once the domain has failed
+    MAX_FETCH_ATTEMPTS times and should be given up on (marked seen)."""
+    counts = state.setdefault("fail_counts", {})
+    counts[domain] = counts.get(domain, 0) + 1
+    return counts[domain] >= MAX_FETCH_ATTEMPTS

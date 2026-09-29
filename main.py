@@ -154,8 +154,7 @@ def run():
             domain = company["domain"]
             if domain in seen:
                 continue
-            seen.add(domain)
-            state_mod.mark_domain_seen(state, domain)
+            seen.add(domain)  # in-memory only: don't retry twice in the same run
 
             print(f"  [scrape] {domain}")
             try:
@@ -164,8 +163,23 @@ def run():
                 print(f"    -> error scraping {domain}, skipping: {e}")
                 state["errors_today"] += 1
                 errors_this_run += 1
+                if state_mod.record_fetch_failure(state, domain):
+                    state_mod.mark_domain_seen(state, domain)
                 continue
             state["sites_today"] += 1
+
+            # Persist "seen" only when the outcome is final. A transient
+            # failure (timeout / 403 / 5xx) is retried on later runs, up to
+            # MAX_FETCH_ATTEMPTS, instead of blacklisting the company forever.
+            if contacts.get("status", "ok") == "fetch_failed":
+                if state_mod.record_fetch_failure(state, domain):
+                    print(f"    -> giving up on {domain} after repeated fetch failures")
+                    state_mod.mark_domain_seen(state, domain)
+                else:
+                    print(f"    -> fetch failed for {domain}, will retry on a later run")
+                time.sleep(config.REQUEST_DELAY_SECONDS)
+                continue
+            state_mod.mark_domain_seen(state, domain)
 
             if contacts["emails"] or contacts["phones"]:
                 company_name = contacts.get("company_name", domain)

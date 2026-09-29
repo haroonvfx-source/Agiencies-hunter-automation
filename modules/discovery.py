@@ -33,8 +33,9 @@ def _is_junk_domain(domain: str) -> bool:
     return any(j in domain for j in junk)
 
 
-def search_ddg(query: str, max_results: int = 15) -> list:
-    """Free, no-key search via the ddgs package."""
+def search_ddg(query: str, max_results: int = 15, page: int = 1) -> list:
+    """Free, no-key search via the ddgs package. `page` is passed through so
+    page 2/3 return NEW results instead of repeating page 1."""
     try:
         from ddgs import DDGS
     except ImportError:
@@ -43,7 +44,12 @@ def search_ddg(query: str, max_results: int = 15) -> list:
     results = []
     try:
         with DDGS() as ddgs:
-            for r in ddgs.text(query, max_results=max_results):
+            try:
+                hits = ddgs.text(query, max_results=max_results, page=page)
+            except TypeError:
+                # very old duckduckgo_search has no `page` arg - only page 1
+                hits = ddgs.text(query, max_results=max_results) if page == 1 else []
+            for r in hits:
                 url = r.get("href") or r.get("url") or ""
                 domain = _domain_of(url)
                 if not url or not domain or _is_junk_domain(domain):
@@ -100,7 +106,7 @@ def find_companies(query: str, page: int) -> list:
     Single entry point used by main.py. Tries free DDG search first; if
     Google CSE credentials are configured, merges those results in too.
     """
-    results = search_ddg(query, max_results=20)
+    results = search_ddg(query, max_results=20, page=page)
     time.sleep(1)
     results += search_google_cse(query, page=page)
 
