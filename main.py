@@ -158,7 +158,7 @@ def run():
 
             print(f"  [scrape] {domain}")
             try:
-                contacts = scrape_contacts.scrape_company_site(company["url"], domain)
+                contacts = scrape_contacts.scrape_company_site(company["url"], domain, country)
             except Exception as e:
                 print(f"    -> error scraping {domain}, skipping: {e}")
                 state["errors_today"] += 1
