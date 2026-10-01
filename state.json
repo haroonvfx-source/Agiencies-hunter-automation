@@ -1,7 +1,7 @@
 {
-  "country_index": 33,
-  "query_index": 1,
-  "page_index": 0,
+  "country_index": 3,
+  "query_index": 2,
+  "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
     "npdigital.com",
@@ -968,7 +968,11 @@
     "icelandcareers.co.uk",
     "cavalierihotel.com",
     "remax-malta.com",
-    "switch.com.mt"
+    "switch.com.mt",
+    "revenuebase.ai",
+    "rankscale.ai",
+    "reverbico.com",
+    "scrap.io"
   ],
   "seen_company_names": [
     "digimark.ie",
@@ -1526,11 +1530,13 @@
     "hero productions iceland from reykjavik",
     "cavalieri art hotel - urban sophistication at the water\u2019s edge",
     "re/max malta",
-    "switch - digital & brand"
+    "switch - digital & brand",
+    "rankscale.ai",
+    "reverb | full service marketing"
   ],
   "last_run_date": "2026-10-01",
-  "queries_today": 74,
-  "sites_today": 77,
+  "queries_today": 150,
+  "sites_today": 81,
   "errors_today": 0,
   "mx_cache": {
     "bionictalent.com": true,
@@ -1927,17 +1933,19 @@
     "trickshot.is": true,
     "guidetoiceland.is": true,
     "o72513.ingest.sentry.io": false,
-    "cavalierihotel.com": true
+    "cavalierihotel.com": true,
+    "rankscale.ai": true,
+    "reverbico.com": true
   },
   "query_stats": {
     "\"digital marketing agency\" {country} \"hiring\" (\"video editor\" OR \"graphic designer\")": 49,
     "\"video production company\" {country} contact email": 142,
     "social media marketing agency {country} \"contact us\"": 62,
-    "\"digital marketing agency\" {country} contact": 94,
+    "\"digital marketing agency\" {country} contact": 96,
     "\"creative agency\" {country} \"video editor\" jobs": 22,
     "\"branding agency\" {country} \"graphic designer\" careers": 33
   },
-  "cycle": 2,
+  "cycle": 3,
   "fail_counts": {
     "faire.com": 1,
     "mckinsey.com": 1,
