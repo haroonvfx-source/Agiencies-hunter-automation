@@ -1,7 +1,7 @@
 {
-  "country_index": 19,
-  "query_index": 5,
-  "page_index": 0,
+  "country_index": 20,
+  "query_index": 0,
+  "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
     "npdigital.com",
@@ -1100,7 +1100,9 @@
     "31productions.sg",
     "easyvideo.sg",
     "mycareersfuture.gov.sg",
-    "jab.sg"
+    "jab.sg",
+    "mediaonemarketing.com.sg",
+    "roguedigital.sg"
   ],
   "seen_company_names": [
     "digimark.ie",
@@ -1766,11 +1768,13 @@
     "coco creative studio",
     "31productions",
     "easyvideo",
-    "jab design"
+    "jab design",
+    "mediaone",
+    "rogue digital"
   ],
   "last_run_date": "2026-10-03",
-  "queries_today": 146,
-  "sites_today": 152,
+  "queries_today": 150,
+  "sites_today": 154,
   "errors_today": 0,
   "mx_cache": {
     "bionictalent.com": true,
@@ -2285,12 +2289,14 @@
     "cococreativestudio.com": true,
     "31productions.sg": true,
     "easyvideo.sg": true,
-    "jab.sg": true
+    "jab.sg": true,
+    "mediaone.co": true,
+    "roguedigital.co": true
   },
   "query_stats": {
     "\"digital marketing agency\" {country} \"hiring\" (\"video editor\" OR \"graphic designer\")": 59,
     "\"video production company\" {country} contact email": 181,
-    "social media marketing agency {country} \"contact us\"": 81,
+    "social media marketing agency {country} \"contact us\"": 83,
     "\"digital marketing agency\" {country} contact": 119,
     "\"creative agency\" {country} \"video editor\" jobs": 27,
     "\"branding agency\" {country} \"graphic designer\" careers": 43
