@@ -1,6 +1,6 @@
 {
-  "country_index": 20,
-  "query_index": 0,
+  "country_index": 28,
+  "query_index": 2,
   "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
@@ -1102,7 +1102,10 @@
     "mycareersfuture.gov.sg",
     "jab.sg",
     "mediaonemarketing.com.sg",
-    "roguedigital.sg"
+    "roguedigital.sg",
+    "engagestorm.be",
+    "britxel.com",
+    "tolgaege.com"
   ],
   "seen_company_names": [
     "digimark.ie",
@@ -1770,11 +1773,14 @@
     "easyvideo",
     "jab design",
     "mediaone",
-    "rogue digital"
+    "rogue digital",
+    "engagestorm",
+    "seo, meta ads, websites & apps in pakistan",
+    "tolga ege"
   ],
-  "last_run_date": "2026-10-03",
+  "last_run_date": "2026-10-04",
   "queries_today": 150,
-  "sites_today": 154,
+  "sites_today": 3,
   "errors_today": 0,
   "mx_cache": {
     "bionictalent.com": true,
@@ -2291,13 +2297,17 @@
     "easyvideo.sg": true,
     "jab.sg": true,
     "mediaone.co": true,
-    "roguedigital.co": true
+    "roguedigital.co": true,
+    "engagestorm.be": true,
+    "numerique.com": true,
+    "britxel.com": true,
+    "tolgaege.com": true
   },
   "query_stats": {
     "\"digital marketing agency\" {country} \"hiring\" (\"video editor\" OR \"graphic designer\")": 59,
     "\"video production company\" {country} contact email": 181,
     "social media marketing agency {country} \"contact us\"": 83,
-    "\"digital marketing agency\" {country} contact": 119,
+    "\"digital marketing agency\" {country} contact": 122,
     "\"creative agency\" {country} \"video editor\" jobs": 27,
     "\"branding agency\" {country} \"graphic designer\" careers": 43
   },
