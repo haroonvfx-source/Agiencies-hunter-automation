@@ -1,7 +1,7 @@
 {
-  "country_index": 33,
-  "query_index": 2,
-  "page_index": 2,
+  "country_index": 2,
+  "query_index": 4,
+  "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
     "npdigital.com",
@@ -1873,7 +1873,7 @@
     "nuna collective branding and design"
   ],
   "last_run_date": "2026-10-05",
-  "queries_today": 91,
+  "queries_today": 150,
   "sites_today": 66,
   "errors_today": 0,
   "mx_cache": {
@@ -2454,7 +2454,7 @@
     "\"creative agency\" {country} \"video editor\" jobs": 34,
     "\"branding agency\" {country} \"graphic designer\" careers": 51
   },
-  "cycle": 3,
+  "cycle": 4,
   "fail_counts": {
     "faire.com": 1,
     "mckinsey.com": 1,
