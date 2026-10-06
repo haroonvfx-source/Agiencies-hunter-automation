@@ -1,6 +1,6 @@
 {
-  "country_index": 2,
-  "query_index": 4,
+  "country_index": 11,
+  "query_index": 0,
   "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
@@ -1872,9 +1872,9 @@
     "media & creative jobs",
     "nuna collective branding and design"
   ],
-  "last_run_date": "2026-10-05",
+  "last_run_date": "2026-10-06",
   "queries_today": 150,
-  "sites_today": 66,
+  "sites_today": 0,
   "errors_today": 0,
   "mx_cache": {
     "bionictalent.com": true,
