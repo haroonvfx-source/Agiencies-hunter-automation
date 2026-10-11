@@ -1,7 +1,7 @@
 {
-  "country_index": 16,
-  "query_index": 3,
-  "page_index": 0,
+  "country_index": 18,
+  "query_index": 4,
+  "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
     "npdigital.com",
@@ -1438,7 +1438,17 @@
     "streetdirectory.com",
     "denmark.dk",
     "amcopenhagen.com",
-    "digitalpr.dk"
+    "digitalpr.dk",
+    "roccfilm.de",
+    "berlinsbi.com",
+    "datafilehost.com",
+    "whop.com",
+    "glg.com",
+    "adem.public.lu",
+    "webbanking.bgl.lu",
+    "ses.com",
+    "acolad.com",
+    "vitaldesign.com"
   ],
   "seen_company_names": [
     "digimark.ie",
@@ -2380,11 +2390,18 @@
     "become better creators \u2014 together.",
     "contact",
     "am copenhagen",
-    "digitalpr"
+    "digitalpr",
+    "rocc film",
+    "bsbi",
+    "whop",
+    "leading expert network for trusted human expertise",
+    "login",
+    "acolad: global leader in translation, interpreting & content solutions",
+    "vital design"
   ],
   "last_run_date": "2026-10-11",
-  "queries_today": 110,
-  "sites_today": 62,
+  "queries_today": 150,
+  "sites_today": 79,
   "errors_today": 0,
   "mx_cache": {
     "bionictalent.com": true,
@@ -3178,15 +3195,20 @@
     "workindenmark.dk": true,
     "um.dk": true,
     "amcopenhagen.com": true,
-    "digitalpr.dk": true
+    "digitalpr.dk": true,
+    "roccfilm.de": true,
+    "berlinsbi.com": true,
+    "whop.com": true,
+    "glgroup.com": true,
+    "vitaldesign.com": true
   },
   "query_stats": {
-    "\"digital marketing agency\" {country} \"hiring\" (\"video editor\" OR \"graphic designer\")": 70,
-    "\"video production company\" {country} contact email": 276,
+    "\"digital marketing agency\" {country} \"hiring\" (\"video editor\" OR \"graphic designer\")": 73,
+    "\"video production company\" {country} contact email": 277,
     "social media marketing agency {country} \"contact us\"": 124,
-    "\"digital marketing agency\" {country} contact": 206,
+    "\"digital marketing agency\" {country} contact": 208,
     "\"creative agency\" {country} \"video editor\" jobs": 42,
-    "\"branding agency\" {country} \"graphic designer\" careers": 68
+    "\"branding agency\" {country} \"graphic designer\" careers": 69
   },
   "cycle": 5,
   "fail_counts": {
@@ -3265,18 +3287,18 @@
     "wearewill.nl": 2,
     "id.techinasia.com": 1,
     "monsoon.agency": 1,
-    "terratern.com": 1,
-    "adfluencer.de": 1,
+    "terratern.com": 2,
+    "adfluencer.de": 2,
     "digitaltrends.com": 1,
     "news.ycombinator.com": 3,
     "tumlook.com": 1,
-    "crawljobs.com": 1,
-    "editus.lu": 1,
+    "crawljobs.com": 2,
+    "editus.lu": 2,
     "sotaventomedios.com": 1,
     "singapore.recruit.net": 1,
     "overflow.sg": 1,
     "vicinity.studio": 1,
-    "claude.ai": 1,
+    "claude.ai": 2,
     "vistos.mne.gov.pt": 1,
     "studysail.com": 2,
     "appsinsight.co": 1,
@@ -3336,6 +3358,8 @@
     "shift.nl": 1,
     "promotionfilm.nl": 1,
     "microsoft.com": 1,
-    "dezeenjobs.com": 1
+    "dezeenjobs.com": 1,
+    "thisismirage.com": 1,
+    "poidata.io": 1
   }
 }
