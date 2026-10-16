@@ -1,6 +1,6 @@
 {
-  "country_index": 24,
-  "query_index": 3,
+  "country_index": 26,
+  "query_index": 2,
   "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
@@ -1795,7 +1795,16 @@
     "aab-marketing.com",
     "impli.fr",
     "undergroundproduction.fr",
-    "francefixers.com"
+    "francefixers.com",
+    "ruche-pollen.com",
+    "gapdigital.co.nz",
+    "orly.co.nz",
+    "perpetuaproductions.co.nz",
+    "nz.jora.com",
+    "socialsocial.co.nz",
+    "easysocialmedia.co.nz",
+    "culture.nz",
+    "savasaachi.it"
   ],
   "seen_company_names": [
     "digimark.ie",
@@ -3003,11 +3012,15 @@
     "digitiz",
     "prestataire seo international, r\u00e9f\u00e9rencement grenoble",
     "underground production",
-    "france fixers"
+    "france fixers",
+    "ruche & pollen",
+    "social social",
+    "social media marketing agency auckland",
+    "savasaachi italy"
   ],
   "last_run_date": "2026-10-16",
-  "queries_today": 117,
-  "sites_today": 58,
+  "queries_today": 150,
+  "sites_today": 69,
   "errors_today": 0,
   "mx_cache": {
     "bionictalent.com": true,
@@ -4096,13 +4109,17 @@
     "digitiz.fr": true,
     "aab-marketing.com": true,
     "undergroundproduction.fr": true,
-    "francefixers.com": true
+    "francefixers.com": true,
+    "ruche-pollen.com": true,
+    "socialsocial.co.nz": true,
+    "easysocialmedia.co.nz": true,
+    "savasaachi.it": true
   },
   "query_stats": {
     "\"digital marketing agency\" {country} \"hiring\" (\"video editor\" OR \"graphic designer\")": 89,
     "\"video production company\" {country} contact email": 352,
-    "social media marketing agency {country} \"contact us\"": 178,
-    "\"digital marketing agency\" {country} contact": 283,
+    "social media marketing agency {country} \"contact us\"": 181,
+    "\"digital marketing agency\" {country} contact": 284,
     "\"creative agency\" {country} \"video editor\" jobs": 54,
     "\"branding agency\" {country} \"graphic designer\" careers": 96
   },
@@ -4138,8 +4155,8 @@
     "visas-fr.tlscontact.com": 1,
     "wwws.airfrance.fr": 1,
     "digitalestate.co.nz": 2,
-    "orly.co.nz": 2,
-    "perpetuaproductions.co.nz": 2,
+    "orly.co.nz": 3,
+    "perpetuaproductions.co.nz": 3,
     "emarketer.com": 3,
     "vml.com": 3,
     "dailyremote.com": 3,
@@ -4316,6 +4333,8 @@
     "crediaproductions.com": 1,
     "juliusjansson.com": 1,
     "southkoreayp.com": 1,
-    "engfilmkorea.or.kr": 1
+    "engfilmkorea.or.kr": 1,
+    "realpictures.co.nz": 1,
+    "squaremarketing.it": 1
   }
 }
