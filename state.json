@@ -1,7 +1,7 @@
 {
-  "country_index": 6,
-  "query_index": 5,
-  "page_index": 0,
+  "country_index": 9,
+  "query_index": 0,
+  "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
     "npdigital.com",
@@ -1892,7 +1892,15 @@
     "curveqatar.com",
     "strike-studios.com",
     "oxygenqr.com",
-    "thefilmhouse.tv"
+    "thefilmhouse.tv",
+    "breath.qa",
+    "norgedigital.no",
+    "onlinejobs.ph",
+    "sa.jooble.org",
+    "nextproductions.sa",
+    "dahsha.sa",
+    "elitedstudio.com",
+    "koraspond.com"
   ],
   "seen_company_names": [
     "digimark.ie",
@@ -3164,11 +3172,16 @@
     "keele university",
     "curve qatar",
     "oxygen production",
-    "the film house"
+    "the film house",
+    "want to grow your brand? contact us",
+    "norge digital",
+    "page 4: online jobs in the philippines at onlinejobs.ph",
+    "dahsha",
+    "elite design studio"
   ],
   "last_run_date": "2026-10-18",
-  "queries_today": 110,
-  "sites_today": 62,
+  "queries_today": 150,
+  "sites_today": 75,
   "errors_today": 0,
   "mx_cache": {
     "bionictalent.com": true,
@@ -4326,13 +4339,17 @@
     "keele.ac.uk": true,
     "curveqatar.com": true,
     "oxygenqr.com": true,
-    "thefilmhouse.tv": true
+    "thefilmhouse.tv": true,
+    "arabmarketing.no": false,
+    "onlinejobs.ph": true,
+    "dahsha.sa": true,
+    "elitedstudio.com": true
   },
   "query_stats": {
-    "\"digital marketing agency\" {country} \"hiring\" (\"video editor\" OR \"graphic designer\")": 95,
-    "\"video production company\" {country} contact email": 376,
-    "social media marketing agency {country} \"contact us\"": 187,
-    "\"digital marketing agency\" {country} contact": 305,
+    "\"digital marketing agency\" {country} \"hiring\" (\"video editor\" OR \"graphic designer\")": 96,
+    "\"video production company\" {country} contact email": 378,
+    "social media marketing agency {country} \"contact us\"": 188,
+    "\"digital marketing agency\" {country} contact": 306,
     "\"creative agency\" {country} \"video editor\" jobs": 55,
     "\"branding agency\" {country} \"graphic designer\" careers": 98
   },
@@ -4455,14 +4472,14 @@
     "1qatarjobs.com": 1,
     "strike-studios.com": 3,
     "gulftalent.com": 3,
-    "optabyt.com": 1,
+    "optabyt.com": 2,
     "no.jooble.org": 1,
     "salaryexpert.com": 3,
     "expatriates.com": 1,
-    "sa.jooble.org": 2,
+    "sa.jooble.org": 3,
     "arabic.naukrigulf.com": 1,
-    "nextproductions.sa": 2,
-    "koraspond.com": 2,
+    "nextproductions.sa": 3,
+    "koraspond.com": 3,
     "markandting.com": 2,
     "cyberport.hk": 1,
     "hk.jobsdb.com": 2,
@@ -4520,8 +4537,8 @@
     "qatarvision.com": 1,
     "jobhai.com": 1,
     "wud.qa": 1,
-    "jobs.laimoon.com": 1,
-    "saudi.tanqeeb.com": 1,
+    "jobs.laimoon.com": 2,
+    "saudi.tanqeeb.com": 2,
     "aimarketing.com.hk": 1,
     "truelogic.com.hk": 1,
     "magicframebh.com": 1,
@@ -4558,6 +4575,8 @@
     "zibdigital.com.au": 1,
     "remote.co": 1,
     "imaginecanada.ca": 1,
-    "police.uk": 1
+    "police.uk": 1,
+    "saudiarabia.mimusjobs.com": 1,
+    "takteek.sa": 1
   }
 }
