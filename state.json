@@ -1,7 +1,7 @@
 {
   "country_index": 25,
-  "query_index": 1,
-  "page_index": 0,
+  "query_index": 4,
+  "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
     "npdigital.com",
@@ -3327,8 +3327,8 @@
     "www.hellowork.com"
   ],
   "last_run_date": "2026-10-20",
-  "queries_today": 140,
-  "sites_today": 47,
+  "queries_today": 150,
+  "sites_today": 48,
   "errors_today": 0,
   "mx_cache": {
     "bionictalent.com": true,
@@ -4773,7 +4773,7 @@
     "juliusjansson.com": 2,
     "southkoreayp.com": 1,
     "engfilmkorea.or.kr": 1,
-    "realpictures.co.nz": 1,
+    "realpictures.co.nz": 2,
     "squaremarketing.it": 1,
     "dadoproduction.it": 1,
     "crewinmotion.com": 1,
