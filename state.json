@@ -1,6 +1,6 @@
 {
-  "country_index": 33,
-  "query_index": 2,
+  "country_index": 0,
+  "query_index": 0,
   "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
@@ -2035,7 +2035,20 @@
     "thechado.com",
     "thisisdcp.com",
     "ado.mt",
-    "magazine.unh.edu"
+    "magazine.unh.edu",
+    "paramount.com",
+    "bbc.co.uk",
+    "ingamejob.com",
+    "tribuneonlineng.com",
+    "hrf.org.uk",
+    "bavc.org",
+    "coddy.tech",
+    "fixermalta.com",
+    "careerhub.com",
+    "jobs.ikea.com",
+    "storm-design.net",
+    "ponderandpitch.com",
+    "strategicmalta.com"
   ],
   "seen_company_names": [
     "digimark.ie",
@@ -3409,11 +3422,18 @@
     "production service company in iceland - film, tv, etc.",
     "chado",
     "digital consulting pros",
-    "unh magazine"
+    "unh magazine",
+    "bbc careers",
+    "human relief foundation",
+    "bavc media",
+    "coddy",
+    "fixer malta",
+    "ikea jobs",
+    "ponder & pitch"
   ],
   "last_run_date": "2026-10-21",
-  "queries_today": 138,
-  "sites_today": 54,
+  "queries_today": 150,
+  "sites_today": 69,
   "errors_today": 0,
   "mx_cache": {
     "bionictalent.com": true,
@@ -4674,17 +4694,27 @@
     "pegasus.is": true,
     "thechado.com": true,
     "myfairpoint.net": true,
-    "unh.edu": true
+    "unh.edu": true,
+    "bbc.com": true,
+    "bavc.org": true,
+    "coddy.tech": true,
+    "fixermalta.com": true,
+    "job.id": true,
+    "url.job": false,
+    "position.tostring": false,
+    "html.searchresultheadline": false,
+    "job.jobtype": false,
+    "ponderandpitch.com": true
   },
   "query_stats": {
     "\"digital marketing agency\" {country} \"hiring\" (\"video editor\" OR \"graphic designer\")": 98,
-    "\"video production company\" {country} contact email": 417,
-    "social media marketing agency {country} \"contact us\"": 199,
+    "\"video production company\" {country} contact email": 418,
+    "social media marketing agency {country} \"contact us\"": 200,
     "\"digital marketing agency\" {country} contact": 326,
-    "\"creative agency\" {country} \"video editor\" jobs": 65,
-    "\"branding agency\" {country} \"graphic designer\" careers": 113
+    "\"creative agency\" {country} \"video editor\" jobs": 69,
+    "\"branding agency\" {country} \"graphic designer\" careers": 114
   },
-  "cycle": 7,
+  "cycle": 8,
   "fail_counts": {
     "faire.com": 1,
     "mckinsey.com": 1,
@@ -4852,8 +4882,8 @@
     "ado.mt": 3,
     "fixermalta.com": 1,
     "igamingcareers.co": 1,
-    "storm-design.net": 2,
-    "strategicmalta.com": 2,
+    "storm-design.net": 3,
+    "strategicmalta.com": 3,
     "monster.com": 2,
     "50pros.com": 1,
     "careerbuilder.com": 1,
@@ -4882,7 +4912,7 @@
     "findapart.ie": 1,
     "fuzion.ie": 1,
     "link.springer.com": 1,
-    "tribuneonlineng.com": 2,
+    "tribuneonlineng.com": 3,
     "poeajobs.ph": 1,
     "behance.net": 3,
     "ykone.com": 1,
@@ -4922,6 +4952,8 @@
     "koreanair.com": 1,
     "unusualnomad.com": 1,
     "jobs.christran.gg": 1,
-    "maria-johnsen.com": 1
+    "maria-johnsen.com": 1,
+    "mendeley.com": 1,
+    "betssongroup.com": 1
   }
 }
