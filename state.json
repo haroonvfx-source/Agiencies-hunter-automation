@@ -1,7 +1,7 @@
 {
   "country_index": 16,
   "query_index": 4,
-  "page_index": 0,
+  "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
     "npdigital.com",
@@ -3599,7 +3599,7 @@
     "siemens"
   ],
   "last_run_date": "2026-10-23",
-  "queries_today": 149,
+  "queries_today": 150,
   "sites_today": 50,
   "errors_today": 0,
   "mx_cache": {
