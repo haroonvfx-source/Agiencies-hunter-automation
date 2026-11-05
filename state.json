@@ -1,7 +1,7 @@
 {
-  "country_index": 22,
-  "query_index": 6,
-  "page_index": 0,
+  "country_index": 23,
+  "query_index": 0,
+  "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
     "npdigital.com",
@@ -4299,7 +4299,7 @@
     "ping helsinki"
   ],
   "last_run_date": "2026-11-05",
-  "queries_today": 149,
+  "queries_today": 150,
   "sites_today": 42,
   "errors_today": 0,
   "mx_cache": {
