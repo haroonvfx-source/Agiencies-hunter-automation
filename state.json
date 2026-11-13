@@ -1,7 +1,7 @@
 {
   "country_index": 21,
   "query_index": 4,
-  "page_index": 0,
+  "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
     "npdigital.com",
@@ -4644,7 +4644,7 @@
     "everai jobs"
   ],
   "last_run_date": "2026-11-13",
-  "queries_today": 149,
+  "queries_today": 150,
   "sites_today": 46,
   "errors_today": 0,
   "mx_cache": {
