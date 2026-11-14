@@ -1,6 +1,6 @@
 {
-  "country_index": 29,
-  "query_index": 5,
+  "country_index": 30,
+  "query_index": 0,
   "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
@@ -4709,7 +4709,7 @@
     "influencept"
   ],
   "last_run_date": "2026-11-14",
-  "queries_today": 147,
+  "queries_today": 150,
   "sites_today": 48,
   "errors_today": 0,
   "mx_cache": {
