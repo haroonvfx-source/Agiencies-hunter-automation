@@ -1,6 +1,6 @@
 {
-  "country_index": 29,
-  "query_index": 2,
+  "country_index": 3,
+  "query_index": 4,
   "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
@@ -2921,7 +2921,27 @@
     "elespacio.net",
     "wsioms.co.za",
     "mzansicreative.com",
-    "brandsouthafrica.com"
+    "brandsouthafrica.com",
+    "home.barclays",
+    "careers.honeywell.com",
+    "up.gov.cz",
+    "lomography.com",
+    "workinczech.com",
+    "climaxxmedia.com",
+    "uncoveredgroup-1688718843.teamtailor.com",
+    "thinkingmaltamedia.com",
+    "50pros.com",
+    "dha.gov.ae",
+    "uaecompanies.ae",
+    "ti22films.com",
+    "socialmediamarketinguae.com",
+    "grovia.net",
+    "bmmarketing.ae",
+    "remoshift.com",
+    "remotejobs.com",
+    "pulsjob.com",
+    "wapcreatives.com",
+    "careers.sbs.com.au"
   ],
   "seen_company_names": [
     "digimark.ie",
@@ -4884,11 +4904,23 @@
     "radisson careers",
     "elespacio",
     "wsi south africa",
-    "mzansi creative."
+    "mzansi creative.",
+    "careers at barclays",
+    "lomography",
+    "workinczech.com",
+    "climaxx media ltd",
+    "uncovered group",
+    "top video production agencies to hire in november 2026",
+    "uae companies directory",
+    "ti22 films",
+    "360 digital marketing company in dubai (uae)",
+    "remoshift",
+    "pulse job",
+    "wap"
   ],
-  "last_run_date": "2026-11-18",
+  "last_run_date": "2026-11-19",
   "queries_today": 150,
-  "sites_today": 36,
+  "sites_today": 24,
   "errors_today": 0,
   "mx_cache": {
     "bionictalent.com": true,
@@ -6750,17 +6782,25 @@
     "nombrecliente.com": false,
     "elespacio.net": true,
     "wsioms.co.za": true,
-    "mzansicreative.com": true
+    "mzansicreative.com": true,
+    "talent-community.com": true,
+    "barclays.com": true,
+    "uncoveredgroup.com": true,
+    "50pros.com": true,
+    "ti22films.com": true,
+    "grovia.net": true,
+    "remoshift.com": true,
+    "pulsjob.com": true
   },
   "query_stats": {
     "\"digital marketing agency\" {country} \"hiring\" (\"video editor\" OR \"graphic designer\")": 152,
-    "\"video production company\" {country} contact email": 571,
-    "social media marketing agency {country} \"contact us\"": 306,
-    "\"digital marketing agency\" {country} contact": 477,
-    "\"creative agency\" {country} \"video editor\" jobs": 126,
-    "\"branding agency\" {country} \"graphic designer\" careers": 175
+    "\"video production company\" {country} contact email": 573,
+    "social media marketing agency {country} \"contact us\"": 308,
+    "\"digital marketing agency\" {country} contact": 478,
+    "\"creative agency\" {country} \"video editor\" jobs": 129,
+    "\"branding agency\" {country} \"graphic designer\" careers": 179
   },
-  "cycle": 14,
+  "cycle": 15,
   "fail_counts": {
     "faire.com": 1,
     "mckinsey.com": 1,
@@ -6934,7 +6974,7 @@
     "50pros.com": 1,
     "careerbuilder.com": 3,
     "sahealth.sa.gov.au": 1,
-    "skcreative.com.au": 1,
+    "skcreative.com.au": 2,
     "portal.australiansuper.com": 1,
     "usi.gov.au": 1,
     "brandandmortar.com": 3,
@@ -7106,7 +7146,7 @@
     "cushmanwakefield.com": 1,
     "brandsouthafrica.com": 1,
     "relomote.com": 3,
-    "thinkingmaltamedia.com": 2,
+    "thinkingmaltamedia.com": 3,
     "armonicafilm.ae": 1,
     "zerotaxjobs.com": 1,
     "robertwalters.co.uk": 1,
@@ -7146,6 +7186,9 @@
     "canon.co.nz": 1,
     "vikingcruises.com": 1,
     "take.rocks": 1,
-    "turijobs.com": 1
+    "turijobs.com": 1,
+    "jobs.sap.com": 1,
+    "sgs.com": 1,
+    "gmg.com": 1
   }
 }
