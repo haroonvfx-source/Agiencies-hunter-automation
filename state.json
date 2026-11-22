@@ -1,6 +1,6 @@
 {
-  "country_index": 20,
-  "query_index": 2,
+  "country_index": 28,
+  "query_index": 4,
   "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
@@ -2985,7 +2985,28 @@
     "sinch.com",
     "ceruleanjobs.com",
     "nine.agency",
-    "beastmagazine.lu"
+    "beastmagazine.lu",
+    "us.creative.com",
+    "en.creative.com",
+    "support.creative.com",
+    "fsolver.com",
+    "crosswordsolver.com",
+    "globalclue.com",
+    "crossword-solver.io",
+    "ama.org",
+    "blog.hubspot.com",
+    "brandingmerchandise.com",
+    "ramotion.com",
+    "digitalregenesys.com",
+    "dictionary.cambridge.org",
+    "secure.ssa.gov",
+    "ldoceonline.com",
+    "liveclock.io",
+    "dictionary.com",
+    "vimeo.com",
+    "wevideo.com",
+    "dailymotion.com",
+    "primevideo.com"
   ],
   "seen_company_names": [
     "digimark.ie",
@@ -4990,11 +5011,18 @@
     "sinch",
     "h\u00e3\u00a4stens graphic designer \u00e2\u0080\u0093 k\u00e3\u00b6ping \u00e2\u0080\u0093 cerulean",
     "nine agency \u00e2\u0080\u0093 award-winning influencer marketing agency",
-    "beast magazine"
+    "beast magazine",
+    "american marketing association",
+    "what is branding? how to build a brand people love in 7 steps",
+    "branding merchandise, boring oregon",
+    "what is branding? definition, types & examples",
+    "what is branding? understand how to build a strong brand",
+    "liveclock online",
+    "prime video: watch movies, tv shows, sports, and live tv"
   ],
-  "last_run_date": "2026-11-21",
+  "last_run_date": "2026-11-22",
   "queries_today": 150,
-  "sites_today": 27,
+  "sites_today": 34,
   "errors_today": 0,
   "mx_cache": {
     "bionictalent.com": true,
@@ -6894,15 +6922,20 @@
     "ceruleanjobs.com": true,
     "nine.agency": true,
     "beastmagazine.lu": true,
-    "waoo.agency": true
+    "waoo.agency": true,
+    "seedx.us": true,
+    "brandingmerchandise.com": true,
+    "ramotion.com": true,
+    "regenesys.net": true,
+    "liveclock.io": true
   },
   "query_stats": {
     "\"digital marketing agency\" {country} \"hiring\" (\"video editor\" OR \"graphic designer\")": 155,
-    "\"video production company\" {country} contact email": 580,
+    "\"video production company\" {country} contact email": 581,
     "social media marketing agency {country} \"contact us\"": 311,
-    "\"digital marketing agency\" {country} contact": 491,
+    "\"digital marketing agency\" {country} contact": 492,
     "\"creative agency\" {country} \"video editor\" jobs": 129,
-    "\"branding agency\" {country} \"graphic designer\" careers": 183
+    "\"branding agency\" {country} \"graphic designer\" careers": 188
   },
   "cycle": 15,
   "fail_counts": {
@@ -7302,6 +7335,19 @@
     "terumo.com": 1,
     "jal.co.jp": 1,
     "unilever.co.uk": 1,
-    "de.jooble.org": 1
+    "de.jooble.org": 1,
+    "merriam-webster.com": 1,
+    "creativefabrica.com": 1,
+    "creativemarket.com": 1,
+    "wordplays.com": 1,
+    "danword.com": 1,
+    "the-crossword-solver.org": 1,
+    "wordhelp.com": 1,
+    "siteground.com": 1,
+    "ssa.gov": 1,
+    "thefreedictionary.com": 1,
+    "britannica.com": 1,
+    "computerhope.com": 1,
+    "amazon.com": 1
   }
 }
