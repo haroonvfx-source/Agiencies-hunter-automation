@@ -1,7 +1,7 @@
 {
-  "country_index": 1,
-  "query_index": 4,
-  "page_index": 0,
+  "country_index": 3,
+  "query_index": 0,
+  "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
     "npdigital.com",
@@ -3059,7 +3059,24 @@
     "barentz.com",
     "marscricket.co.uk",
     "arabiantalks.com",
-    "emsteel.com"
+    "emsteel.com",
+    "laammedia.com",
+    "theemiratesgroup.com",
+    "nma.gov.ae",
+    "jumeirah.com",
+    "rbbideas.com",
+    "aventusglobal.com",
+    "astudio.agency",
+    "swissdevjobs.ch",
+    "hitachienergy.com",
+    "haskoning.com",
+    "rediff.com",
+    "jobs.volvogroup.com",
+    "contactout.com",
+    "work.mercor.com",
+    "careers.roche.com",
+    "roche.com",
+    "basedesign.com"
   ],
   "seen_company_names": [
     "digimark.ie",
@@ -5109,11 +5126,22 @@
     "clarios - delkor",
     "barentz middle east",
     "arabiantalks",
-    "emsteel"
+    "emsteel",
+    "laam media & co. | creative media, branding & digital marketing",
+    "emirates group brands",
+    "national media authority - united arab emirates",
+    "rbbi",
+    "aventus global",
+    "astudio",
+    "hitachi energy",
+    "welcome to rediff.com: get ahead",
+    "mercor",
+    "roche",
+    "base design"
   ],
   "last_run_date": "2026-11-23",
-  "queries_today": 125,
-  "sites_today": 70,
+  "queries_today": 150,
+  "sites_today": 92,
   "errors_today": 0,
   "mx_cache": {
     "bionictalent.com": true,
@@ -7054,15 +7082,27 @@
     "deyaar.ae": true,
     "barentz.com": true,
     "arabiantalks.com": true,
-    "emsteel.com": true
+    "emsteel.com": true,
+    "laammedia.com": true,
+    "redox.com": true,
+    "emirates.com": true,
+    "nma.gov.ae": true,
+    "rbbideas.com": true,
+    "aventusglobal.com": true,
+    "hitachienergy.com": true,
+    "unitifoundation.org": false,
+    "usief.org.in": true,
+    "mercor.com": true,
+    "roche.com": true,
+    "basedesign.com": true
   },
   "query_stats": {
-    "\"digital marketing agency\" {country} \"hiring\" (\"video editor\" OR \"graphic designer\")": 156,
+    "\"digital marketing agency\" {country} \"hiring\" (\"video editor\" OR \"graphic designer\")": 157,
     "\"video production company\" {country} contact email": 595,
-    "social media marketing agency {country} \"contact us\"": 314,
-    "\"digital marketing agency\" {country} contact": 501,
-    "\"creative agency\" {country} \"video editor\" jobs": 134,
-    "\"branding agency\" {country} \"graphic designer\" careers": 194
+    "social media marketing agency {country} \"contact us\"": 320,
+    "\"digital marketing agency\" {country} contact": 502,
+    "\"creative agency\" {country} \"video editor\" jobs": 135,
+    "\"branding agency\" {country} \"graphic designer\" careers": 196
   },
   "cycle": 16,
   "fail_counts": {
@@ -7371,7 +7411,7 @@
     "kalibrr.com": 1,
     "clickbot.co.nz": 1,
     "jirada.com": 1,
-    "digitlab.co.za": 1,
+    "digitlab.co.za": 2,
     "pt.expertini.com": 1,
     "tiffanycareers.com": 1,
     "jobbers.io": 1,
@@ -7486,6 +7526,10 @@
     "edgegroup.ae": 1,
     "wsp.com": 1,
     "emiratespost.ae": 1,
-    "atlantis.com": 1
+    "atlantis.com": 1,
+    "en-ae.whatjobs.com": 1,
+    "tcs.com": 1,
+    "nestle.com": 1,
+    "malt.com": 1
   }
 }
