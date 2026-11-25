@@ -1,6 +1,6 @@
 {
-  "country_index": 11,
-  "query_index": 2,
+  "country_index": 19,
+  "query_index": 4,
   "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
@@ -3076,7 +3076,25 @@
     "work.mercor.com",
     "careers.roche.com",
     "roche.com",
-    "basedesign.com"
+    "basedesign.com",
+    "bruntworkcareers.co",
+    "aiu.ac.in",
+    "app.synthesia.io",
+    "ahlanfilms.com",
+    "ghaliah.com",
+    "japandigitalmarketingagency.com",
+    "somniumfilm.com",
+    "chenabdigital.jp",
+    "cbmedia.ie",
+    "elevatedigital.nl",
+    "ocast.com",
+    "germancontent.io",
+    "digitalone.se",
+    "kvantic.com",
+    "videoeditor.jobs",
+    "cconcept.lu",
+    "prova.fundacaocefetminas.org.br",
+    "customerimpact.be"
   ],
   "seen_company_names": [
     "digimark.ie",
@@ -5137,11 +5155,23 @@
     "welcome to rediff.com: get ahead",
     "mercor",
     "roche",
-    "base design"
+    "base design",
+    "ahlan films",
+    "ghaliah",
+    "japan digital",
+    "somniumfilm",
+    "chenab digital",
+    "elevate digital",
+    "ocast",
+    "kvantic",
+    "videoeditor.jobs",
+    "c. concept luxembourg",
+    "prova.fundacaocefetminas.org.br",
+    "customer impact"
   ],
-  "last_run_date": "2026-11-24",
+  "last_run_date": "2026-11-25",
   "queries_today": 150,
-  "sites_today": 0,
+  "sites_today": 22,
   "errors_today": 0,
   "mx_cache": {
     "bionictalent.com": true,
@@ -7094,14 +7124,27 @@
     "usief.org.in": true,
     "mercor.com": true,
     "roche.com": true,
-    "basedesign.com": true
+    "basedesign.com": true,
+    "ahlanfilms.com": true,
+    "somniumfilm.com": true,
+    "chenabdigital.jp": true,
+    "elevatedigital.nl": true,
+    "ocast.com": true,
+    "o264749.ingest.us.sentry.io": false,
+    "kvantic.com": true,
+    "videoeditor.jobs": true,
+    "content.jobs": true,
+    "retention.jobs": true,
+    "cconcept.lu": true,
+    "prova.fundacaocefetminas.org.br": false,
+    "customerimpact.be": true
   },
   "query_stats": {
-    "\"digital marketing agency\" {country} \"hiring\" (\"video editor\" OR \"graphic designer\")": 157,
-    "\"video production company\" {country} contact email": 595,
-    "social media marketing agency {country} \"contact us\"": 320,
-    "\"digital marketing agency\" {country} contact": 502,
-    "\"creative agency\" {country} \"video editor\" jobs": 135,
+    "\"digital marketing agency\" {country} \"hiring\" (\"video editor\" OR \"graphic designer\")": 160,
+    "\"video production company\" {country} contact email": 597,
+    "social media marketing agency {country} \"contact us\"": 323,
+    "\"digital marketing agency\" {country} contact": 505,
+    "\"creative agency\" {country} \"video editor\" jobs": 136,
     "\"branding agency\" {country} \"graphic designer\" careers": 196
   },
   "cycle": 16,
@@ -7530,6 +7573,10 @@
     "en-ae.whatjobs.com": 1,
     "tcs.com": 1,
     "nestle.com": 1,
-    "malt.com": 1
+    "malt.com": 1,
+    "nature.com": 1,
+    "ndtv.com": 1,
+    "dentsucreative.com": 1,
+    "mc-communication.lu": 1
   }
 }
