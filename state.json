@@ -1,6 +1,6 @@
 {
-  "country_index": 19,
-  "query_index": 4,
+  "country_index": 28,
+  "query_index": 0,
   "page_index": 1,
   "seen_domains": [
     "goodfirms.co",
@@ -3094,7 +3094,18 @@
     "videoeditor.jobs",
     "cconcept.lu",
     "prova.fundacaocefetminas.org.br",
-    "customerimpact.be"
+    "customerimpact.be",
+    "lunaloomdigital.com",
+    "powwow.be",
+    "at.trabajo.org",
+    "growth-onomics.com",
+    "upthereeverywhere.com",
+    "dvv.fi",
+    "fraymful.com",
+    "ph.jooble.org",
+    "phoenixdigital.nz",
+    "italiamultimedia.com",
+    "manpower.it"
   ],
   "seen_company_names": [
     "digimark.ie",
@@ -5167,11 +5178,17 @@
     "videoeditor.jobs",
     "c. concept luxembourg",
     "prova.fundacaocefetminas.org.br",
-    "customer impact"
+    "customer impact",
+    "luna loom digital",
+    "growth-onomics",
+    "up there everywhere",
+    "fraymful",
+    "phoenix digital",
+    "italia multimedia"
   ],
-  "last_run_date": "2026-11-25",
+  "last_run_date": "2026-11-26",
   "queries_today": 150,
-  "sites_today": 22,
+  "sites_today": 14,
   "errors_today": 0,
   "mx_cache": {
     "bionictalent.com": true,
@@ -7137,13 +7154,19 @@
     "retention.jobs": true,
     "cconcept.lu": true,
     "prova.fundacaocefetminas.org.br": false,
-    "customerimpact.be": true
+    "customerimpact.be": true,
+    "lunaloomdigital.com": true,
+    "growth-onomics.com": true,
+    "uberdigit.com": true,
+    "upthereeverywhere.com": true,
+    "fraymful.com": true,
+    "italiamultimedia.com": true
   },
   "query_stats": {
     "\"digital marketing agency\" {country} \"hiring\" (\"video editor\" OR \"graphic designer\")": 160,
-    "\"video production company\" {country} contact email": 597,
-    "social media marketing agency {country} \"contact us\"": 323,
-    "\"digital marketing agency\" {country} contact": 505,
+    "\"video production company\" {country} contact email": 598,
+    "social media marketing agency {country} \"contact us\"": 326,
+    "\"digital marketing agency\" {country} contact": 507,
     "\"creative agency\" {country} \"video editor\" jobs": 136,
     "\"branding agency\" {country} \"graphic designer\" careers": 196
   },
@@ -7380,7 +7403,7 @@
     "in.jooble.org": 3,
     "gskcreative.com.sg": 3,
     "cvp.com": 3,
-    "dvv.fi": 2,
+    "dvv.fi": 3,
     "mother.usf.edu": 3,
     "koreanair.com": 1,
     "unusualnomad.com": 1,
@@ -7404,9 +7427,9 @@
     "smartsinga.com": 3,
     "maukerja.my": 1,
     "fr.glassdoor.be": 1,
-    "powwow.be": 2,
-    "duunitori.fi": 1,
-    "ph.jooble.org": 2,
+    "powwow.be": 3,
+    "duunitori.fi": 2,
+    "ph.jooble.org": 3,
     "duitdesign.com": 1,
     "g2.com": 1,
     "cromostudio.it": 1,
@@ -7576,7 +7599,8 @@
     "malt.com": 1,
     "nature.com": 1,
     "ndtv.com": 1,
-    "dentsucreative.com": 1,
-    "mc-communication.lu": 1
+    "dentsucreative.com": 2,
+    "mc-communication.lu": 1,
+    "workinaustria.com": 1
   }
 }
